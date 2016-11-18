@@ -25,30 +25,30 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Publisher::class, function (Faker\Generator $faker) {
+$factory->define(\App\Publisher\Publisher::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->company,
     ];
 });
 
-$factory->define(App\Author::class, function (Faker\Generator $faker) use ($idRetriever) {
+$factory->define(\App\Author\Author::class, function (Faker\Generator $faker) use ($idRetriever) {
     return [
         'name' => $faker->name,
-        'publisher_id' => $idRetriever->randomModelId(\App\Publisher::class, 1),
+        'publisher_id' => $idRetriever->randomModelId(\App\Publisher\Publisher::class, 1),
     ];
 });
 
-$factory->define(App\Book::class, function (Faker\Generator $faker) use ($idRetriever) {
+$factory->define(\App\Book\Book::class, function (Faker\Generator $faker) use ($idRetriever) {
     return [
         'name' => $faker->words(3, true),
-        'author_id' => $idRetriever->randomModelId(\App\Author::class),
+        'author_id' => $idRetriever->randomModelId(\App\Author\Author::class),
     ];
 });
 
-$factory->define(App\Chapter::class, function (Faker\Generator $faker) use ($idRetriever) {
+$factory->define(\App\Chapter\Chapter::class, function (Faker\Generator $faker) use ($idRetriever) {
     return [
         'name' => $faker->name,
         'text' => $faker->paragraphs(3, true),
-        'book_id' => $idRetriever->randomModelId(\App\Book::class),
+        'book_id' => $idRetriever->randomModelId(\App\Book\Book::class),
     ];
 });

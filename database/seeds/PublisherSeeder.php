@@ -11,7 +11,7 @@ class PublisherSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Publisher::class, 10)->create()->each(function ($a) {
+        factory(\App\Publisher\Publisher::class, 10)->create()->each(function ($a) {
 
         });
     }
