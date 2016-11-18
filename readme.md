@@ -20,13 +20,15 @@ it would result in 11 queries.
 If you refactored this to utilize Laravel's eager loading, then it will result in only a couple of queries: 
 
 ```
-$publishers = \App\Publishers\Publisher::with('authors)->get();
+$publishers = \App\Publishers\Publisher::with('authors')->get();
 $authors = [];
 
 foreach($publishers as $publisher) {
     $authors[] = $publishers->authors;
 }
 ```
+
+To eager load nested relations you can call `with()` using dot notation: `with('authors.books.chapters')`.
 
 ## Resources
 
