@@ -163,7 +163,7 @@ class IdRetriever
      */
     protected function retrieveSingleId($query)
     {
-        $result = $query->pluck('id');
+        $result = $query->pluck('id')->first();
         if ($result === null) {
             throw new RuntimeException($this->classOrTable . ' Model id not found');
         }
