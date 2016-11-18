@@ -11,6 +11,8 @@ class ChapterSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Chapter::class, 10000)->create()->each(function ($a) {
+
+        });
     }
 }
