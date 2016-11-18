@@ -41,7 +41,7 @@ $factory->define(App\Author::class, function (Faker\Generator $faker) use ($idRe
 $factory->define(App\Book::class, function (Faker\Generator $faker) use ($idRetriever) {
     return [
         'name' => $faker->words(3, true),
-        'author_id' => $idRetriever->randomModelId(Author::class),
+        'author_id' => $idRetriever->randomModelId(\App\Author::class),
     ];
 });
 
@@ -49,6 +49,6 @@ $factory->define(App\Chapter::class, function (Faker\Generator $faker) use ($idR
     return [
         'name' => $faker->name,
         'text' => $faker->paragraphs(3, true),
-        'book_id' => $idRetriever->randomModelId(Book::class),
+        'book_id' => $idRetriever->randomModelId(\App\Book::class),
     ];
 });
