@@ -7,8 +7,12 @@ use App\Contracts\Transformer;
 
 class AuthorTransformer implements Transformer
 {
-    public function transform($item)
+    public function transform($author)
     {
-        // TODO: Implement transform() method.
+        return [
+            'name' => $author->name,
+            'publisher_id' => $author->publisher_id,
+            'books' => null,
+        ];
     }
 }
