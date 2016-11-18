@@ -7,8 +7,12 @@ use App\Contracts\Transformer;
 
 class ChapterTransformer implements Transformer
 {
-    public function transform($item)
+    public function transform($chapter)
     {
-        // TODO: Implement transform() method.
+        return [
+            'name' => $chapter->name,
+            'book_id' => $chapter->book_id,
+            'text' => $chapter,
+        ];
     }
 }
