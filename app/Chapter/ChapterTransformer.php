@@ -7,6 +7,10 @@ use App\Contracts\Transformer;
 
 class ChapterTransformer implements Transformer
 {
+    /**
+     * @param Chapter $chapter
+     * @return array
+     */
     public function transform($chapter)
     {
         return [

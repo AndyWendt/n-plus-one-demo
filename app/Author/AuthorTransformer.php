@@ -7,6 +7,10 @@ use App\Contracts\Transformer;
 
 class AuthorTransformer implements Transformer
 {
+    /**
+     * @param Author $author
+     * @return array
+     */
     public function transform($author)
     {
         return [

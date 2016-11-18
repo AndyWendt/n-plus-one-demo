@@ -7,6 +7,10 @@ use App\Contracts\Transformer;
 
 class BookTransformer implements Transformer
 {
+    /**
+     * @param Book $book
+     * @return array
+     */
     public function transform($book)
     {
         return [
