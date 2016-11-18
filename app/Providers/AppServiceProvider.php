@@ -13,7 +13,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $count = 0;
+        \DB::listen(function($query) use (&$count) {
+            \Log::info([
+                'count' => ++$count,
+                'time'  => $query->time,
+                'bindings' => $query->bindings,
+                'sql' => $query->sql,
+            ]);
+        });
     }
 
     /**
