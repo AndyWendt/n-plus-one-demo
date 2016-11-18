@@ -3,10 +3,21 @@
 namespace App\Author;
 
 
+use App\Book\BookTransformer;
 use App\Contracts\Transformer;
 
 class AuthorTransformer implements Transformer
 {
+    /**
+     * @var BookTransformer
+     */
+    private $bookTransformer;
+
+    public function __construct(BookTransformer $bookTransformer)
+    {
+        $this->bookTransformer = $bookTransformer;
+    }
+
     /**
      * @param Author $author
      * @return array

@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class PublisherController extends Controller
 {
-    public function index()
+    public function index(PublisherTransformer $publisherTransformer)
     {
         $publishers = Publisher::all();
-        return response()->json(transform_collection($publishers, new PublisherTransformer()));
+        return response()->json(transform_collection($publishers, $publisherTransformer));
     }
 }
