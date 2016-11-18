@@ -10,7 +10,7 @@ class PublisherController extends Controller
 {
     public function index(PublisherTransformer $publisherTransformer)
     {
-        $publishers = Publisher::all();
+        $publishers = Publisher::with('authors.books.chapters')->get();
         return response()->json(transform_collection($publishers, $publisherTransformer));
     }
 }

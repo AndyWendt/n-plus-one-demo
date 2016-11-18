@@ -16,7 +16,7 @@ class ChapterTransformer implements Transformer
         return [
             'name' => $chapter->name,
             'book_id' => $chapter->book_id,
-            'text' => $chapter,
+            'text' => $chapter->text,
         ];
     }
 }

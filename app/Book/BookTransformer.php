@@ -27,7 +27,7 @@ class BookTransformer implements Transformer
         return [
             'name' => $book->name,
             'author_id' => $book->author_id,
-            'chapters' => null,
+            'chapters' => transform_collection($book->chapters, $this->chapterTransformer),
         ];
     }
 }

@@ -26,7 +26,7 @@ class PublisherTransformer implements Transformer
     {
         return [
             'name' => $publisher->name,
-            'authors' => null,
+            'authors' => transform_collection($publisher->authors, $this->authorTransformer),
         ];
     }
 }
